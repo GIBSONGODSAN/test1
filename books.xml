@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <id>1</id>
+        <title>Book 1</title>
+        <count>0</count>
+    </book>
+    <book>
+        <id>2</id>
+        <title>Book 2</title>
+        <count>0</count>
+    </book>
+    <book>
+        <id>2</id>
+        <title>Book 3</title>
+        <count>0</count>
+    </book>
+    <!-- Add more books as needed -->
+</books>

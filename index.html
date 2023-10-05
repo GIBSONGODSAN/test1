@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Store</title>
+</head>
+<body>
+    <h1>Book Store</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Count</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Book 1</td>
+            <td id="count1">0</td>
+            <td><button onclick="incrementCount(1)">Purchase</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Book 2</td>
+            <td id="count2">0</td>
+            <td><button onclick="incrementCount(2)">Purchase</button></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Book 3</td>
+            <td id="count3">0</td>
+            <td><button onclick="incrementCount(3)">Purchase</button></td>
+        </tr>
+        <!-- Add more rows for additional books -->
+    </table>
+    <a href="purchases.html">View Purchases</a>
+
+    <script>
+        function incrementCount(bookId) {
+            var countElement = document.getElementById('count' + bookId);
+            var currentCount = parseInt(countElement.textContent);
+            currentCount++;
+            countElement.textContent = currentCount;
+            
+            // Store the updated count in Local Storage
+            localStorage.setItem('count' + bookId, currentCount);
+        }
+    </script>
+</body>
+</html>

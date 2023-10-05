@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchases</title>
+</head>
+<body>
+    <h1>Your Purchases</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Count</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Book 1</td>
+            <td id="count1"></td>
+            <td><button onclick="decrementCount(1)">Decrement</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Book 2</td>
+            <td id="count2"></td>
+            <td><button onclick="decrementCount(2)">Decrement</button></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Book 3</td>
+            <td id="count3"></td>
+            <td><button onclick="decrementCount(3)">Decrement</button></td>
+        </tr>
+        <!-- Add more rows for additional books -->
+    </table>
+    <a href="index.html">Back to Store</a>
+    <a href="checkout.html">Checkout</a>
+
+    <script>
+        // Retrieve counts from Local Storage and display them
+        function displayCounts() {
+            for (var i = 1; i <= 3; i++) { // Update for additional books
+                var countElement = document.getElementById('count' + i);
+                var count = localStorage.getItem('count' + i) || '0';
+                countElement.textContent = count;
+            }
+        }
+
+        function decrementCount(bookId) {
+            var countElement = document.getElementById('count' + bookId);
+            var currentCount = parseInt(countElement.textContent);
+            if (currentCount > 0) {
+                currentCount--;
+                countElement.textContent = currentCount;
+                localStorage.setItem('count' + bookId, currentCount);
+            }
+        }
+
+        // Call the function to display counts when the page loads
+        window.onload = displayCounts;
+    </script>
+</body>
+</html>
